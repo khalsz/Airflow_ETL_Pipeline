@@ -1,5 +1,8 @@
-# files and folders to ignore
+# Ignore the config folder
+config/
 
-/config
-/py_venv
+# Ignore the py_venv folder
+py_venv/
+
+# Ignore the .env file
 .env
