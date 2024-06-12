@@ -1,0 +1,5 @@
+# files and folders to ignore
+
+/config
+/py_venv
+.env
