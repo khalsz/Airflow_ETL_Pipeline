@@ -8,7 +8,7 @@ logger = setup_logger(__name__)
 
 
 @task()
-def insert_data_into_table( input_clean_data: pd.DataFrame, table_name: str):
+def insert_into_db_table( input_clean_data: pd.DataFrame, table_name: str):
     
     """Inserts data from a DataFrame into a SQL table using Airflow's SQLExecuteQueryOperator.
 
@@ -43,3 +43,7 @@ def insert_data_into_table( input_clean_data: pd.DataFrame, table_name: str):
     except Exception as e:
         logger.exception("Error inserting data into table")
         raise 
+    
+@task()    
+def come_and_go(): 
+    return True

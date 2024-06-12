@@ -1,10 +1,12 @@
 import pandas as pd
 from validate.schema import column_names
 from log.logging_config import setup_logger
+from airflow.decorators import task
 
 logger = setup_logger(__name__)
 
 
+@task()
 def validator(input_data:pd.DataFrame): 
     logger.info("stating data validation/transformation process")
     exp_col_names = input_data.columns.sort()
@@ -22,7 +24,7 @@ def validator(input_data:pd.DataFrame):
                 if datatype == "object": 
                     input_data.iloc[:, i].astype("object")
             return True
-        except Exception as e: 
+        except Exception: 
             raise Exception("Error converting dataframe type")        
     except Exception: 
         logger.exception("error validating data, does not meet expected criteria")
