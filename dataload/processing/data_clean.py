@@ -5,7 +5,6 @@ import os
 import pandas as pd
 from os.path import join
 from airflow.decorators import task
-import json
 
 logger = setup_logger(__name__)
 

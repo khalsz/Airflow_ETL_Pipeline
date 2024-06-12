@@ -1,8 +1,8 @@
 import pandas as pd
 import io
 from airflow.decorators import task
-
 from log.logging_config import setup_logger
+
 
 logger = setup_logger(__name__)
 
@@ -15,7 +15,8 @@ def load_data(url, rowsskip,  save_path):
         datadf.to_csv(f'{save_path}/emission_data.csv', index= False)
         
         logger.info("successfully completed data extraction, cleaning and loading to local drive")
-        return datadf
+        return datadf.to_json()
+    
     except Exception: 
         logger.error("error loading data to local drive")
         raise

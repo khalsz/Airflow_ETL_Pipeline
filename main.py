@@ -23,7 +23,7 @@ def air_pollution_etl (data_url, path):
     datadf = load_data(url=data_url, rowsskip =0,  save_path=path) 
     
     clean_data = data_cleaning(datadf)
-    print(clean_data)
+
     
     val_result = validator(clean_data)
     
