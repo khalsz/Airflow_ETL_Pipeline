@@ -1,0 +1,108 @@
+version: '3.1'
+x-common-airflow: 
+  &common-airflow
+  image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.9.1}
+  environment: 
+    &common-airflow-environment
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
+  volumes:
+    - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
+    - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
+    - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
+    - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
+    - ${AIRFLOW_PROJ_DIR:-.}/save:/opt/airflow/save
+  user: "${AIRFLOW_UID:-50000}:0"
+  depends_on: 
+    &airflow-common-depends-on
+    postgres: 
+      condition: service_healthy
+
+services:
+  postgres: 
+    image: postgres
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: airflow_etl
+    env_file:
+      - ./config/secrets.txt
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME}"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 5s
+  
+  airflow-init: 
+    <<: *common-airflow 
+    environment:
+      <<: *common-airflow-environment
+      _AIRFLOW_DB_MIGRATE: 'true'
+      _AIRFLOW_WWW_USER_CREATE: 'true'
+      _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
+      _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+      _PIP_ADDITIONAL_REQUIREMENTS: ''
+    command: ["airflow", "db", "init"]
+  
+  airflow-webserver: 
+    <<: *common-airflow 
+    command: ["airflow", "webserver"]
+    ports:
+      - 8080:8080
+    healthcheck:
+      test: ["CMD-SHELL", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: always
+    depends_on:
+      <<: *airflow-common-depends-on
+      airflow-init: 
+        condition: service_completed_successfully
+  
+  airflow-scheduler: 
+    <<: *common-airflow 
+    command: ["airflow", "scheduler"]
+    healthcheck:
+      test: ["CMD-SHELL", "curl", "--fail", "http://localhost:8974/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: always
+    depends_on:
+      <<: *airflow-common-depends-on
+      airflow-init: 
+        condition: service_completed_successfully
+  
+  airflow-trigger: 
+    <<: *common-airflow 
+    command: ["airflow", "trigger"]
+    healthcheck:
+      test: ["CMD-SHELL", 'airflow jobs check --job-type TriggererJob --hostname "$${HOSTNAME}"']
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: always
+    depends_on:
+      <<: *airflow-common-depends-on
+      airflow-init: 
+        condition: service_completed_successfully
+  
+  airflow-cli: 
+    <<: *common-airflow 
+    profiles:
+      - debug
+    environment:
+      <<: *airflow-common-depends-on
+      CONNECTION_CHECK_MAX_COUNT: "0"
+    command: 
+      - bash
+      - -c
+      - airflow
+     
