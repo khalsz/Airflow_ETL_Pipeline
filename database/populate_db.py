@@ -22,7 +22,10 @@ def insert_into_db_table( input_clean_data: pd.DataFrame, table_name: str):
     Raises:
         Exception: If an error occurs during SQL execution.
     """
-
+    
+    # converting json data into DataFrame
+    data = pd.read_json(input_clean_data)
+    
     data = input_clean_data.to_records(index=False).tolist()
     column_names = ", ".join(input_clean_data.columns)
     query_statement = f"""
@@ -44,6 +47,3 @@ def insert_into_db_table( input_clean_data: pd.DataFrame, table_name: str):
         logger.exception("Error inserting data into table")
         raise 
     
-@task()    
-def come_and_go(): 
-    return True

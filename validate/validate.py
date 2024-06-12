@@ -7,9 +7,14 @@ logger = setup_logger(__name__)
 
 
 @task()
-def validator(input_data:pd.DataFrame): 
+def validator(input_clean_data): 
     logger.info("stating data validation/transformation process")
-    exp_col_names = input_data.columns.sort()
+    
+    # convert json input to DataFrame
+    input_clean_data = pd.read_json(input_clean_data)
+    
+    # sorting the columns in alphabetical order
+    exp_col_names = input_clean_data.columns.sort()
     org_sortedcols = {key:column_names[key] for key in sorted(column_names)}
     
     try: 
@@ -20,9 +25,9 @@ def validator(input_data:pd.DataFrame):
             for i, col in enumerate(org_sortedcols): 
                 datatype = org_sortedcols[col]
                 if datatype == "float64":
-                    pd.to_numeric(input_data.iloc[:, i], errors='coerce').astype('Int64') 
+                    pd.to_numeric(input_clean_data.iloc[:, i], errors='coerce').astype('Int64') 
                 if datatype == "object": 
-                    input_data.iloc[:, i].astype("object")
+                    input_clean_data.iloc[:, i].astype("object")
             return True
         except Exception: 
             raise Exception("Error converting dataframe type")        
