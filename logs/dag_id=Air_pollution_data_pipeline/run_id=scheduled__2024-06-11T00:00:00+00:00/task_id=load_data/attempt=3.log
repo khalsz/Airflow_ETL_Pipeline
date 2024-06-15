@@ -1,0 +1,192 @@
+[2024-06-13T23:16:20.829+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-13T23:16:20.919+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.load_data scheduled__2024-06-11T00:00:00+00:00 [queued]>
+[2024-06-13T23:16:20.935+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.load_data scheduled__2024-06-11T00:00:00+00:00 [queued]>
+[2024-06-13T23:16:20.936+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 6
+[2024-06-13T23:16:20.961+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): load_data> on 2024-06-11 00:00:00+00:00
+[2024-06-13T23:16:20.971+0000] {standard_task_runner.py:63} INFO - Started process 566 to run task
+[2024-06-13T23:16:20.979+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'load_data', 'scheduled__2024-06-11T00:00:00+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmp0b9suaoc']
+[2024-06-13T23:16:20.984+0000] {standard_task_runner.py:91} INFO - Job 38: Subtask load_data
+[2024-06-13T23:16:21.070+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.load_data scheduled__2024-06-11T00:00:00+00:00 [running]> on host 1ebbf628611f
+[2024-06-13T23:16:21.260+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-06-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-11T00:00:00+00:00'
+[2024-06-13T23:16:21.266+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-13T23:16:21.268+0000] {data_load.py:11} INFO - starting data extration from source
+[2024-06-13T23:16:26.464+0000] {data_load.py:20} ERROR - error loading data to local drive
+[2024-06-13T23:16:26.465+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-13T23:16:26.466+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dataload/data_load.py", line 14, in load_data
+    datadf.to_csv(f'{save_path}/emission_data.csv', index= False)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+PermissionError: [Errno 13] Permission denied: '/opt/airflow/save/emission_data.csv'
+[2024-06-13T23:16:26.502+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Air_pollution_data_pipeline, task_id=load_data, run_id=scheduled__2024-06-11T00:00:00+00:00, execution_date=20240611T000000, start_date=20240613T231620, end_date=20240613T231626
+[2024-06-13T23:16:26.546+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 38 for task load_data ([Errno 13] Permission denied: '/opt/airflow/save/emission_data.csv'; 566)
+[2024-06-13T23:16:26.614+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-13T23:16:26.691+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-13T23:16:26.697+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-14T09:56:47.444+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-14T09:56:47.749+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.load_data scheduled__2024-06-11T00:00:00+00:00 [queued]>
+[2024-06-14T09:56:47.845+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.load_data scheduled__2024-06-11T00:00:00+00:00 [queued]>
+[2024-06-14T09:56:47.845+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 6
+[2024-06-14T09:56:48.010+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): load_data> on 2024-06-11 00:00:00+00:00
+[2024-06-14T09:56:48.194+0000] {standard_task_runner.py:63} INFO - Started process 460 to run task
+[2024-06-14T09:56:48.313+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'load_data', 'scheduled__2024-06-11T00:00:00+00:00', '--job-id', '47', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpd_13jt0q']
+[2024-06-14T09:56:48.390+0000] {standard_task_runner.py:91} INFO - Job 47: Subtask load_data
+[2024-06-14T09:56:48.846+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.load_data scheduled__2024-06-11T00:00:00+00:00 [running]> on host 38d417aa145d
+[2024-06-14T09:56:49.335+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-06-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-11T00:00:00+00:00'
+[2024-06-14T09:56:49.345+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-14T09:56:49.346+0000] {data_load.py:11} INFO - starting data extration from source
+[2024-06-14T09:56:54.317+0000] {data_load.py:20} ERROR - error loading data to local drive
+[2024-06-14T09:56:54.319+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-14T09:56:54.330+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dataload/data_load.py", line 14, in load_data
+    datadf.to_csv(f'{save_path}/emission_data.csv', index= False)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+PermissionError: [Errno 13] Permission denied: '/opt/airflow/save/emission_data.csv'
+[2024-06-14T09:56:54.404+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Air_pollution_data_pipeline, task_id=load_data, run_id=scheduled__2024-06-11T00:00:00+00:00, execution_date=20240611T000000, start_date=20240614T095647, end_date=20240614T095654
+[2024-06-14T09:56:54.628+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 47 for task load_data ([Errno 13] Permission denied: '/opt/airflow/save/emission_data.csv'; 460)
+[2024-06-14T09:56:54.657+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-14T09:56:54.731+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-14T09:56:54.738+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-14T10:06:50.621+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-14T10:06:50.691+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.load_data scheduled__2024-06-11T00:00:00+00:00 [queued]>
+[2024-06-14T10:06:50.713+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.load_data scheduled__2024-06-11T00:00:00+00:00 [queued]>
+[2024-06-14T10:06:50.713+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 6
+[2024-06-14T10:06:50.743+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): load_data> on 2024-06-11 00:00:00+00:00
+[2024-06-14T10:06:50.754+0000] {standard_task_runner.py:63} INFO - Started process 460 to run task
+[2024-06-14T10:06:50.765+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'load_data', 'scheduled__2024-06-11T00:00:00+00:00', '--job-id', '49', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpc_uxb0k3']
+[2024-06-14T10:06:50.771+0000] {standard_task_runner.py:91} INFO - Job 49: Subtask load_data
+[2024-06-14T10:06:50.884+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.load_data scheduled__2024-06-11T00:00:00+00:00 [running]> on host aad58c289bbe
+[2024-06-14T10:06:51.105+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-06-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-11T00:00:00+00:00'
+[2024-06-14T10:06:51.107+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-14T10:06:51.109+0000] {data_load.py:11} INFO - starting data extration from source
+[2024-06-14T10:06:53.995+0000] {data_load.py:20} ERROR - error loading data to local drive
+[2024-06-14T10:06:53.996+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-14T10:06:53.997+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dataload/data_load.py", line 14, in load_data
+    datadf.to_csv(f'{save_path}/emission_data.csv', index= False)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+PermissionError: [Errno 13] Permission denied: '/opt/airflow/save/emission_data.csv'
+[2024-06-14T10:06:54.018+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Air_pollution_data_pipeline, task_id=load_data, run_id=scheduled__2024-06-11T00:00:00+00:00, execution_date=20240611T000000, start_date=20240614T100650, end_date=20240614T100654
+[2024-06-14T10:06:54.041+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 49 for task load_data ([Errno 13] Permission denied: '/opt/airflow/save/emission_data.csv'; 460)
+[2024-06-14T10:06:54.073+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-14T10:06:54.119+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-14T10:06:54.122+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-14T11:40:34.981+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-14T11:40:35.079+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.load_data scheduled__2024-06-11T00:00:00+00:00 [queued]>
+[2024-06-14T11:40:35.104+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.load_data scheduled__2024-06-11T00:00:00+00:00 [queued]>
+[2024-06-14T11:40:35.107+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 6
+[2024-06-14T11:40:35.159+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): load_data> on 2024-06-11 00:00:00+00:00
+[2024-06-14T11:40:35.195+0000] {standard_task_runner.py:63} INFO - Started process 466 to run task
+[2024-06-14T11:40:35.219+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'load_data', 'scheduled__2024-06-11T00:00:00+00:00', '--job-id', '45', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmporvz4aef']
+[2024-06-14T11:40:35.233+0000] {standard_task_runner.py:91} INFO - Job 45: Subtask load_data
+[2024-06-14T11:40:35.590+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.load_data scheduled__2024-06-11T00:00:00+00:00 [running]> on host 077b299c21d5
+[2024-06-14T11:40:36.152+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-06-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-11T00:00:00+00:00'
+[2024-06-14T11:40:36.163+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-14T11:40:36.166+0000] {data_load.py:11} INFO - starting data extration from source
+[2024-06-14T11:40:44.944+0000] {data_load.py:20} ERROR - error loading data to local drive
+[2024-06-14T11:40:44.945+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-14T11:40:44.946+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dataload/data_load.py", line 14, in load_data
+    datadf.to_csv(f'{save_path}/emission_data.csv', index= False)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+PermissionError: [Errno 13] Permission denied: '/opt/airflow/save/emission_data.csv'
+[2024-06-14T11:40:44.962+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Air_pollution_data_pipeline, task_id=load_data, run_id=scheduled__2024-06-11T00:00:00+00:00, execution_date=20240611T000000, start_date=20240614T114035, end_date=20240614T114044
+[2024-06-14T11:40:44.985+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 45 for task load_data ([Errno 13] Permission denied: '/opt/airflow/save/emission_data.csv'; 466)
+[2024-06-14T11:40:45.028+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-14T11:40:45.062+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-14T11:40:45.065+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,4 +1,0 @@
-# defining environmental variables
-dbconfig = {'USERNAME': 'YOUR POSTGRES USERNAME', 
-            'PASSWORD': 'YOUR POSTGRES PASSWORD',
-            'HOST': 'POSTGRES HOST'}

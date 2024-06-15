@@ -1,0 +1,19 @@
+[2024-06-14T16:25:04.715+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-14T16:25:04.983+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.visualization scheduled__2024-06-06T00:00:00+00:00 [queued]>
+[2024-06-14T16:25:05.027+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.visualization scheduled__2024-06-06T00:00:00+00:00 [queued]>
+[2024-06-14T16:25:05.029+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 6
+[2024-06-14T16:25:06.162+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): visualization> on 2024-06-06 00:00:00+00:00
+[2024-06-14T16:25:06.193+0000] {standard_task_runner.py:63} INFO - Started process 929 to run task
+[2024-06-14T16:25:06.253+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'visualization', 'scheduled__2024-06-06T00:00:00+00:00', '--job-id', '159', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmp0mbsz3jl']
+[2024-06-14T16:25:06.278+0000] {standard_task_runner.py:91} INFO - Job 159: Subtask visualization
+[2024-06-14T16:25:06.840+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.visualization scheduled__2024-06-06T00:00:00+00:00 [running]> on host 6078ceb33835
+[2024-06-14T16:25:08.169+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='visualization' AIRFLOW_CTX_EXECUTION_DATE='2024-06-06T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-06T00:00:00+00:00'
+[2024-06-14T16:25:08.174+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-14T16:25:08.176+0000] {visualization.py:12} INFO - starting data visualization
+[2024-06-14T16:25:08.240+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/statistical_analysis/visualization.py:15 FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+[2024-06-14T16:25:09.919+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-14T16:25:09.924+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-14T16:25:10.074+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=Air_pollution_data_pipeline, task_id=visualization, run_id=scheduled__2024-06-06T00:00:00+00:00, execution_date=20240606T000000, start_date=20240614T162504, end_date=20240614T162510
+[2024-06-14T16:25:10.758+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-14T16:25:10.879+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-14T16:25:10.897+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
