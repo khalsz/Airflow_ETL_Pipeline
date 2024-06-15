@@ -6,6 +6,7 @@ from dataload.processing.data_clean import data_cleaning
 from statistical_analysis.summary_analysis import avg_emission_by_year,  generate_summary
 from statistical_analysis.visualization import visualization
 from database.populate_db import insert_into_db_table
+from database.create_table import create_table
 
 data_url = "https://dmldatasets.s3.amazonaws.com/datasets/apache-airflow/air-pollution.csv"
 save_data_to = "/opt/airflow"
@@ -28,18 +29,19 @@ def air_pollution_etl (data_url, path, rowsskip=0):
     
     clean_data = data_cleaning(datadf)
 
+    create_table = create_table()
     
     val_result = validator(clean_data)
     
-    insert_into_db_table(clean_data, "emission")
+    insert_into_db_table(clean_data, "emission").set_upstream(create_table)
     
     avg_emmision = avg_emission_by_year(clean_data, val_result)
     
-    insert_into_db_table(avg_emmision, 'avg_emission')
+    insert_into_db_table(avg_emmision, 'avg_emission').set_upstream(create_table)
     
     summary_stat = generate_summary(clean_data, val_result)
     
-    insert_into_db_table(summary_stat, 'emission summary stats')
+    insert_into_db_table(summary_stat, 'emission_summary_stats').set_upstream(create_table)
     
     visualization(clean_data, val_result, save_path=path)
     
