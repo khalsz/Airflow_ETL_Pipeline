@@ -1,8 +1,7 @@
-# Ignore the config folder
-config/
+# Ignore the evn file
+.env
 
-# Ignore the py_venv folder
-py_venv/
+
 
 # Ignore the .env file
 .env
