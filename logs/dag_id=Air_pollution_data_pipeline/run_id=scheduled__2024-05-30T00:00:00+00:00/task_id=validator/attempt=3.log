@@ -1,0 +1,18 @@
+[2024-06-14T16:23:55.640+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-14T16:23:55.864+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.validator scheduled__2024-05-30T00:00:00+00:00 [queued]>
+[2024-06-14T16:23:55.929+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.validator scheduled__2024-05-30T00:00:00+00:00 [queued]>
+[2024-06-14T16:23:55.949+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 6
+[2024-06-14T16:23:56.512+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): validator> on 2024-05-30 00:00:00+00:00
+[2024-06-14T16:23:56.538+0000] {standard_task_runner.py:63} INFO - Started process 693 to run task
+[2024-06-14T16:23:56.601+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'validator', 'scheduled__2024-05-30T00:00:00+00:00', '--job-id', '102', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpcefxhsin']
+[2024-06-14T16:23:56.644+0000] {standard_task_runner.py:91} INFO - Job 102: Subtask validator
+[2024-06-14T16:23:57.059+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.validator scheduled__2024-05-30T00:00:00+00:00 [running]> on host 6078ceb33835
+[2024-06-14T16:23:58.224+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='validator' AIRFLOW_CTX_EXECUTION_DATE='2024-05-30T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-30T00:00:00+00:00'
+[2024-06-14T16:23:58.227+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-14T16:23:58.228+0000] {validate.py:11} INFO - stating data validation/transformation process
+[2024-06-14T16:23:58.242+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/validate/validate.py:14 FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+[2024-06-14T16:23:58.301+0000] {python.py:237} INFO - Done. Returned value was: True
+[2024-06-14T16:23:58.303+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-14T16:23:58.377+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=Air_pollution_data_pipeline, task_id=validator, run_id=scheduled__2024-05-30T00:00:00+00:00, execution_date=20240530T000000, start_date=20240614T162355, end_date=20240614T162358
+[2024-06-14T16:23:58.455+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-14T16:23:58.493+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
