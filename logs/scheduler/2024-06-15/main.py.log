@@ -1940,3 +1940,21 @@ Traceback (most recent call last):
 UnboundLocalError: local variable 'create_table' referenced before assignment
 [2024-06-15T14:36:52.745+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/main.py
 [2024-06-15T14:36:52.777+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.884 seconds
+[2024-06-15T14:37:23.171+0000] {processor.py:161} INFO - Started process (PID=3819) to work on /opt/airflow/dags/main.py
+[2024-06-15T14:37:23.174+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-15T14:37:23.175+0000] {logging_mixin.py:188} INFO - [2024-06-15T14:37:23.175+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-15T14:37:24.097+0000] {logging_mixin.py:188} INFO - [2024-06-15T14:37:24.096+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/main.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/main.py", line 48, in <module>
+    pollution_analysis = air_pollution_etl(data_url, save_data_to)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/dag.py", line 4081, in factory
+    f(**f_kwargs)
+  File "/opt/airflow/dags/main.py", line 32, in air_pollution_etl
+    create_table = create_table()
+UnboundLocalError: local variable 'create_table' referenced before assignment
+[2024-06-15T14:37:24.098+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/main.py
+[2024-06-15T14:37:24.117+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.954 seconds
