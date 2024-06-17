@@ -1,0 +1,38 @@
+[2024-06-16T17:31:55.076+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-16T17:31:55.116+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.validator manual__2024-06-16T17:21:16+00:00 [queued]>
+[2024-06-16T17:31:55.129+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.validator manual__2024-06-16T17:21:16+00:00 [queued]>
+[2024-06-16T17:31:55.129+0000] {taskinstance.py:2306} INFO - Starting attempt 6 of 6
+[2024-06-16T17:31:55.147+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): validator> on 2024-06-16 17:21:16+00:00
+[2024-06-16T17:31:55.155+0000] {standard_task_runner.py:63} INFO - Started process 4746 to run task
+[2024-06-16T17:31:55.161+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'validator', 'manual__2024-06-16T17:21:16+00:00', '--job-id', '491', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpi7bg2l4n']
+[2024-06-16T17:31:55.164+0000] {standard_task_runner.py:91} INFO - Job 491: Subtask validator
+[2024-06-16T17:31:55.226+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.validator manual__2024-06-16T17:21:16+00:00 [running]> on host 333385971b19
+[2024-06-16T17:31:55.639+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='validator' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T17:21:16+00:00' AIRFLOW_CTX_TRY_NUMBER='6' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-16T17:21:16+00:00'
+[2024-06-16T17:31:55.641+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-16T17:31:55.641+0000] {validate.py:11} INFO - stating data validation/transformation process
+[2024-06-16T17:31:55.674+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/validate/validate.py:14 FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+[2024-06-16T17:31:55.945+0000] {python.py:237} INFO - Done. Returned value was:             Entity  Year  ...  Black_carbon_BC_emissions  Ammonia_NH_emissions
+0      Afghanistan  1750  ...                  1633.0308             7681.0464
+1      Afghanistan  1760  ...                  1699.5359             8000.8574
+2      Afghanistan  1770  ...                  1768.5956             8333.9610
+3      Afghanistan  1780  ...                  1840.2854             8680.9060
+4      Afghanistan  1790  ...                  1914.6805             9042.2660
+...            ...   ...  ...                        ...                   ...
+48220     Zimbabwe  2018  ...                 32050.9020           124543.0160
+48221     Zimbabwe  2019  ...                 32552.8750           127205.2700
+48222     Zimbabwe  2020  ...                 32467.2950           129910.9300
+48223     Zimbabwe  2021  ...                 33174.6050           132651.4800
+48224     Zimbabwe  2022  ...                 33231.3200           134480.5800
+
+[48225 rows x 9 columns]
+[2024-06-16T17:31:55.965+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-16T17:31:55.977+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 474, in _execute_task
+    raise AirflowException(
+airflow.exceptions.AirflowException: Returned output was type <class 'pandas.core.frame.DataFrame'> expected dictionary for multiple_outputs
+[2024-06-16T17:31:55.980+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=Air_pollution_data_pipeline, task_id=validator, run_id=manual__2024-06-16T17:21:16+00:00, execution_date=20240616T172116, start_date=20240616T173155, end_date=20240616T173155
+[2024-06-16T17:31:55.996+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 491 for task validator (Returned output was type <class 'pandas.core.frame.DataFrame'> expected dictionary for multiple_outputs; 4746)
+[2024-06-16T17:31:56.016+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-16T17:31:56.053+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-16T17:31:56.062+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

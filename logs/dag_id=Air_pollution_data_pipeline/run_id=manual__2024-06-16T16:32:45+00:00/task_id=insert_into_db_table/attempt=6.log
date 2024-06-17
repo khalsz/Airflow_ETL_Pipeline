@@ -1,0 +1,46 @@
+[2024-06-16T16:43:38.623+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-16T16:43:38.895+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.insert_into_db_table manual__2024-06-16T16:32:45+00:00 [queued]>
+[2024-06-16T16:43:38.959+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.insert_into_db_table manual__2024-06-16T16:32:45+00:00 [queued]>
+[2024-06-16T16:43:38.960+0000] {taskinstance.py:2306} INFO - Starting attempt 6 of 6
+[2024-06-16T16:43:39.100+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): insert_into_db_table> on 2024-06-16 16:32:45+00:00
+[2024-06-16T16:43:39.127+0000] {standard_task_runner.py:63} INFO - Started process 3121 to run task
+[2024-06-16T16:43:39.137+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'insert_into_db_table', 'manual__2024-06-16T16:32:45+00:00', '--job-id', '350', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpuvmngprt']
+[2024-06-16T16:43:39.153+0000] {standard_task_runner.py:91} INFO - Job 350: Subtask insert_into_db_table
+[2024-06-16T16:43:39.294+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.insert_into_db_table manual__2024-06-16T16:32:45+00:00 [running]> on host 333385971b19
+[2024-06-16T16:43:39.608+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='insert_into_db_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T16:32:45+00:00' AIRFLOW_CTX_TRY_NUMBER='6' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-16T16:32:45+00:00'
+[2024-06-16T16:43:39.610+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-16T16:43:39.613+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-16T16:43:39.616+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/database/populate_db.py", line 26, in insert_into_db_table
+    data = pd.read_json(input_clean_data)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 791, in read_json
+    json_reader = JsonReader(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 904, in __init__
+    data = self._get_data_from_filepath(filepath_or_buffer)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 944, in _get_data_from_filepath
+    self.handles = get_handle(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 719, in get_handle
+    if _is_binary_mode(path_or_buf, mode) and "b" not in mode:
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 1181, in _is_binary_mode
+    return isinstance(handle, _get_binary_io_classes()) or "b" in getattr(
+TypeError: argument of type 'method' is not iterable
+[2024-06-16T16:43:39.634+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=Air_pollution_data_pipeline, task_id=insert_into_db_table, run_id=manual__2024-06-16T16:32:45+00:00, execution_date=20240616T163245, start_date=20240616T164338, end_date=20240616T164339
+[2024-06-16T16:43:39.667+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 350 for task insert_into_db_table (argument of type 'method' is not iterable; 3121)
+[2024-06-16T16:43:39.711+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-16T16:43:39.744+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-16T16:43:39.747+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

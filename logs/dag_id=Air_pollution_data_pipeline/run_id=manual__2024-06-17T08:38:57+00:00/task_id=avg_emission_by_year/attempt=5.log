@@ -1,0 +1,125 @@
+[2024-06-17T08:56:50.980+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-17T08:56:51.140+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year manual__2024-06-17T08:38:57+00:00 [queued]>
+[2024-06-17T08:56:51.223+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year manual__2024-06-17T08:38:57+00:00 [queued]>
+[2024-06-17T08:56:51.235+0000] {taskinstance.py:2306} INFO - Starting attempt 5 of 6
+[2024-06-17T08:56:51.577+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): avg_emission_by_year> on 2024-06-17 08:38:57+00:00
+[2024-06-17T08:56:51.656+0000] {standard_task_runner.py:63} INFO - Started process 337 to run task
+[2024-06-17T08:56:51.708+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'avg_emission_by_year', 'manual__2024-06-17T08:38:57+00:00', '--job-id', '771', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpl7opsqwn']
+[2024-06-17T08:56:51.715+0000] {standard_task_runner.py:91} INFO - Job 771: Subtask avg_emission_by_year
+[2024-06-17T08:56:52.168+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year manual__2024-06-17T08:38:57+00:00 [running]> on host fa4d239664b0
+[2024-06-17T08:56:53.663+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='avg_emission_by_year' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T08:38:57+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-17T08:38:57+00:00'
+[2024-06-17T08:56:53.670+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-17T08:56:53.673+0000] {summary_analysis.py:33} INFO - starting average pollutants emission calculation
+[2024-06-17T08:56:53.817+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/statistical_analysis/summary_analysis.py:36 FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+[2024-06-17T08:56:56.056+0000] {summary_analysis.py:44} ERROR - error calculating average emission
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 1942, in _agg_py_fallback
+    res_values = self._grouper.agg_series(ser, alt, preserve_dtype=True)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/ops.py", line 864, in agg_series
+    result = self._aggregate_series_pure_python(obj, func)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/ops.py", line 885, in _aggregate_series_pure_python
+    res = func(group)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 2454, in <lambda>
+    alt=lambda x: Series(x, copy=False).mean(numeric_only=numeric_only),
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/series.py", line 6549, in mean
+    return NDFrame.mean(self, axis, skipna, numeric_only, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/generic.py", line 12420, in mean
+    return self._stat_function(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/generic.py", line 12377, in _stat_function
+    return self._reduce(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/series.py", line 6457, in _reduce
+    return op(delegate, skipna=skipna, **kwds)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/nanops.py", line 147, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/nanops.py", line 404, in new_func
+    result = func(values, axis=axis, skipna=skipna, mask=mask, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/nanops.py", line 720, in nanmean
+    the_sum = _ensure_numeric(the_sum)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/nanops.py", line 1701, in _ensure_numeric
+    raise TypeError(f"Could not convert string '{x}' to numeric")
+TypeError: Could not convert string 'AfghanistanAlbaniaAlgeriaAmerican SamoaAngolaAntigua and BarbudaArgentinaArmeniaArubaAustraliaAustriaAzerbaijanBahamasBahrainBangladeshBarbadosBelarusBelgiumBelizeBeninBhutanBoliviaBosnia and HerzegovinaBotswanaBrazilBruneiBulgariaBurkina FasoBurundiCambodiaCameroonCanadaCape VerdeCentral African RepublicChadChileChinaColombiaComorosCongoCosta RicaCote d'IvoireCroatiaCubaCyprusCzechiaDemocratic Republic of CongoDenmarkDjiboutiDominicaDominican RepublicEcuadorEgyptEl SalvadorEquatorial GuineaEritreaEstoniaEswatiniEthiopiaFalkland IslandsFaroe IslandsFijiFinlandFranceFrench GuianaGabonGambiaGeorgiaGermanyGhanaGreeceGreenlandGrenadaGuadeloupeGuatemalaGuineaGuinea-BissauGuyanaHaitiHondurasHong KongHungaryIcelandIndiaIndonesiaIranIraqIrelandIsraelItalyJamaicaJapanJordanKazakhstanKenyaKuwaitKyrgyzstanLaosLatviaLebanonLesothoLiberiaLibyaLiechtensteinLithuaniaLuxembourgMadagascarMalawiMalaysiaMaliMaltaMartiniqueMauritaniaMauritiusMexicoMoldovaMongoliaMontserratMoroccoMozambiqueMyanmarNamibiaNepalNetherlandsNew CaledoniaNew ZealandNicaraguaNigerNigeriaNorth KoreaNorth MacedoniaNorwayOmanPakistanPanamaPapua New GuineaParaguayPeruPhilippinesPolandPortugalPuerto RicoQatarReunionRomaniaRussiaRwandaSaint Kitts and NevisSaint LuciaSaint Pierre and MiquelonSaint Vincent and the GrenadinesSamoaSao Tome and PrincipeSaudi ArabiaSenegalSerbiaSierra LeoneSingaporeSlovakiaSloveniaSolomon IslandsSomaliaSouth AfricaSouth KoreaSpainSri LankaSudanSurinameSwedenSwitzerlandSyriaTaiwanTajikistanTanzaniaThailandTogoTongaTrinidad and TobagoTunisiaTurkeyTurkmenistanTurks and Caicos IslandsUgandaUkraineUnited Arab EmiratesUnited KingdomUnited StatesUnited States Virgin IslandsUruguayUzbekistanVanuatuVenezuelaVietnamWestern SaharaWorldYemenZambiaZimbabwe' to numeric
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/airflow/dags/statistical_analysis/summary_analysis.py", line 38, in avg_emission_by_year
+    avg_emision = val_data.groupby('Year').mean()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 2452, in mean
+    result = self._cython_agg_general(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 1998, in _cython_agg_general
+    new_mgr = data.grouped_reduce(array_func)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/internals/managers.py", line 1469, in grouped_reduce
+    applied = sb.apply(func)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/internals/blocks.py", line 393, in apply
+    result = func(self.values, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 1995, in array_func
+    result = self._agg_py_fallback(how, values, ndim=data.ndim, alt=alt)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 1946, in _agg_py_fallback
+    raise type(err)(msg) from err
+TypeError: agg function failed [how->mean,dtype->object]
+[2024-06-17T08:56:56.106+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-17T08:56:56.107+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 1942, in _agg_py_fallback
+    res_values = self._grouper.agg_series(ser, alt, preserve_dtype=True)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/ops.py", line 864, in agg_series
+    result = self._aggregate_series_pure_python(obj, func)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/ops.py", line 885, in _aggregate_series_pure_python
+    res = func(group)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 2454, in <lambda>
+    alt=lambda x: Series(x, copy=False).mean(numeric_only=numeric_only),
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/series.py", line 6549, in mean
+    return NDFrame.mean(self, axis, skipna, numeric_only, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/generic.py", line 12420, in mean
+    return self._stat_function(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/generic.py", line 12377, in _stat_function
+    return self._reduce(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/series.py", line 6457, in _reduce
+    return op(delegate, skipna=skipna, **kwds)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/nanops.py", line 147, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/nanops.py", line 404, in new_func
+    result = func(values, axis=axis, skipna=skipna, mask=mask, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/nanops.py", line 720, in nanmean
+    the_sum = _ensure_numeric(the_sum)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/nanops.py", line 1701, in _ensure_numeric
+    raise TypeError(f"Could not convert string '{x}' to numeric")
+TypeError: Could not convert string 'AfghanistanAlbaniaAlgeriaAmerican SamoaAngolaAntigua and BarbudaArgentinaArmeniaArubaAustraliaAustriaAzerbaijanBahamasBahrainBangladeshBarbadosBelarusBelgiumBelizeBeninBhutanBoliviaBosnia and HerzegovinaBotswanaBrazilBruneiBulgariaBurkina FasoBurundiCambodiaCameroonCanadaCape VerdeCentral African RepublicChadChileChinaColombiaComorosCongoCosta RicaCote d'IvoireCroatiaCubaCyprusCzechiaDemocratic Republic of CongoDenmarkDjiboutiDominicaDominican RepublicEcuadorEgyptEl SalvadorEquatorial GuineaEritreaEstoniaEswatiniEthiopiaFalkland IslandsFaroe IslandsFijiFinlandFranceFrench GuianaGabonGambiaGeorgiaGermanyGhanaGreeceGreenlandGrenadaGuadeloupeGuatemalaGuineaGuinea-BissauGuyanaHaitiHondurasHong KongHungaryIcelandIndiaIndonesiaIranIraqIrelandIsraelItalyJamaicaJapanJordanKazakhstanKenyaKuwaitKyrgyzstanLaosLatviaLebanonLesothoLiberiaLibyaLiechtensteinLithuaniaLuxembourgMadagascarMalawiMalaysiaMaliMaltaMartiniqueMauritaniaMauritiusMexicoMoldovaMongoliaMontserratMoroccoMozambiqueMyanmarNamibiaNepalNetherlandsNew CaledoniaNew ZealandNicaraguaNigerNigeriaNorth KoreaNorth MacedoniaNorwayOmanPakistanPanamaPapua New GuineaParaguayPeruPhilippinesPolandPortugalPuerto RicoQatarReunionRomaniaRussiaRwandaSaint Kitts and NevisSaint LuciaSaint Pierre and MiquelonSaint Vincent and the GrenadinesSamoaSao Tome and PrincipeSaudi ArabiaSenegalSerbiaSierra LeoneSingaporeSlovakiaSloveniaSolomon IslandsSomaliaSouth AfricaSouth KoreaSpainSri LankaSudanSurinameSwedenSwitzerlandSyriaTaiwanTajikistanTanzaniaThailandTogoTongaTrinidad and TobagoTunisiaTurkeyTurkmenistanTurks and Caicos IslandsUgandaUkraineUnited Arab EmiratesUnited KingdomUnited StatesUnited States Virgin IslandsUruguayUzbekistanVanuatuVenezuelaVietnamWestern SaharaWorldYemenZambiaZimbabwe' to numeric
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/statistical_analysis/summary_analysis.py", line 38, in avg_emission_by_year
+    avg_emision = val_data.groupby('Year').mean()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 2452, in mean
+    result = self._cython_agg_general(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 1998, in _cython_agg_general
+    new_mgr = data.grouped_reduce(array_func)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/internals/managers.py", line 1469, in grouped_reduce
+    applied = sb.apply(func)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/internals/blocks.py", line 393, in apply
+    result = func(self.values, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 1995, in array_func
+    result = self._agg_py_fallback(how, values, ndim=data.ndim, alt=alt)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 1946, in _agg_py_fallback
+    raise type(err)(msg) from err
+TypeError: agg function failed [how->mean,dtype->object]
+[2024-06-17T08:56:56.169+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Air_pollution_data_pipeline, task_id=avg_emission_by_year, run_id=manual__2024-06-17T08:38:57+00:00, execution_date=20240617T083857, start_date=20240617T085651, end_date=20240617T085656
+[2024-06-17T08:56:56.290+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 771 for task avg_emission_by_year (agg function failed [how->mean,dtype->object]; 337)
+[2024-06-17T08:56:56.391+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-17T08:56:56.508+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-17T08:56:56.523+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

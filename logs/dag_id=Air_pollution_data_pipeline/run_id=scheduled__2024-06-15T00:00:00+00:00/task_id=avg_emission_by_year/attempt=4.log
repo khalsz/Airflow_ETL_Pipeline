@@ -1,0 +1,234 @@
+[2024-06-16T00:06:33.647+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-16T00:06:33.699+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year scheduled__2024-06-15T00:00:00+00:00 [queued]>
+[2024-06-16T00:06:33.715+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year scheduled__2024-06-15T00:00:00+00:00 [queued]>
+[2024-06-16T00:06:33.715+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 6
+[2024-06-16T00:06:33.740+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): avg_emission_by_year> on 2024-06-15 00:00:00+00:00
+[2024-06-16T00:06:33.749+0000] {standard_task_runner.py:63} INFO - Started process 3585 to run task
+[2024-06-16T00:06:33.758+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'avg_emission_by_year', 'scheduled__2024-06-15T00:00:00+00:00', '--job-id', '89', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpgpzut58x']
+[2024-06-16T00:06:33.764+0000] {standard_task_runner.py:91} INFO - Job 89: Subtask avg_emission_by_year
+[2024-06-16T00:06:33.862+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year scheduled__2024-06-15T00:00:00+00:00 [running]> on host 6e26965f02f1
+[2024-06-16T00:06:34.230+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='avg_emission_by_year' AIRFLOW_CTX_EXECUTION_DATE='2024-06-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-15T00:00:00+00:00'
+[2024-06-16T00:06:34.232+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-16T00:06:34.234+0000] {summary_analysis.py:33} INFO - starting average pollutants emission calculation
+[2024-06-16T00:06:34.276+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/statistical_analysis/summary_analysis.py:36 FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+[2024-06-16T00:06:34.299+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/statistical_analysis/summary_analysis.py:38 FutureWarning: The behavior of obj[i:j] with a float-dtype index is deprecated. In a future version, this will be treated as positional instead of label-based. For label-based slicing, use obj.loc[i:j] instead
+[2024-06-16T00:06:34.306+0000] {summary_analysis.py:45} ERROR - error calculating average emission
+Traceback (most recent call last):
+  File "/opt/airflow/dags/statistical_analysis/summary_analysis.py", line 39, in avg_emission_by_year
+    avg_emision = sub_data.groupby('Year').mean().reset_index()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/frame.py", line 9183, in groupby
+    return DataFrameGroupBy(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 1329, in __init__
+    grouper, exclusions, obj = get_grouper(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/grouper.py", line 1043, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Year'
+[2024-06-16T00:06:34.315+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-16T00:06:34.316+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/statistical_analysis/summary_analysis.py", line 39, in avg_emission_by_year
+    avg_emision = sub_data.groupby('Year').mean().reset_index()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/frame.py", line 9183, in groupby
+    return DataFrameGroupBy(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 1329, in __init__
+    grouper, exclusions, obj = get_grouper(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/grouper.py", line 1043, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Year'
+[2024-06-16T00:06:34.334+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Air_pollution_data_pipeline, task_id=avg_emission_by_year, run_id=scheduled__2024-06-15T00:00:00+00:00, execution_date=20240615T000000, start_date=20240616T000633, end_date=20240616T000634
+[2024-06-16T00:06:34.381+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 89 for task avg_emission_by_year ('Year'; 3585)
+[2024-06-16T00:06:34.432+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-16T00:06:34.487+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-16T00:06:34.490+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-16T15:58:05.346+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-16T15:58:05.428+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year scheduled__2024-06-15T00:00:00+00:00 [queued]>
+[2024-06-16T15:58:05.453+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year scheduled__2024-06-15T00:00:00+00:00 [queued]>
+[2024-06-16T15:58:05.453+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 6
+[2024-06-16T15:58:05.482+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): avg_emission_by_year> on 2024-06-15 00:00:00+00:00
+[2024-06-16T15:58:05.495+0000] {standard_task_runner.py:63} INFO - Started process 606 to run task
+[2024-06-16T15:58:05.505+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'avg_emission_by_year', 'scheduled__2024-06-15T00:00:00+00:00', '--job-id', '69', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpmzftfua4']
+[2024-06-16T15:58:05.513+0000] {standard_task_runner.py:91} INFO - Job 69: Subtask avg_emission_by_year
+[2024-06-16T15:58:05.717+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year scheduled__2024-06-15T00:00:00+00:00 [running]> on host 333385971b19
+[2024-06-16T15:58:05.938+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='avg_emission_by_year' AIRFLOW_CTX_EXECUTION_DATE='2024-06-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-15T00:00:00+00:00'
+[2024-06-16T15:58:05.940+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-16T15:58:05.941+0000] {summary_analysis.py:33} INFO - starting average pollutants emission calculation
+[2024-06-16T15:58:05.944+0000] {summary_analysis.py:45} ERROR - error calculating average emission
+Traceback (most recent call last):
+  File "/opt/airflow/dags/statistical_analysis/summary_analysis.py", line 36, in avg_emission_by_year
+    val_data = pd.read_json(val_data)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 791, in read_json
+    json_reader = JsonReader(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 904, in __init__
+    data = self._get_data_from_filepath(filepath_or_buffer)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 944, in _get_data_from_filepath
+    self.handles = get_handle(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 728, in get_handle
+    ioargs = _get_filepath_or_buffer(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 472, in _get_filepath_or_buffer
+    raise ValueError(msg)
+ValueError: Invalid file path or buffer object type: <class 'NoneType'>
+[2024-06-16T15:58:05.946+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-16T15:58:05.947+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/statistical_analysis/summary_analysis.py", line 36, in avg_emission_by_year
+    val_data = pd.read_json(val_data)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 791, in read_json
+    json_reader = JsonReader(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 904, in __init__
+    data = self._get_data_from_filepath(filepath_or_buffer)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 944, in _get_data_from_filepath
+    self.handles = get_handle(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 728, in get_handle
+    ioargs = _get_filepath_or_buffer(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 472, in _get_filepath_or_buffer
+    raise ValueError(msg)
+ValueError: Invalid file path or buffer object type: <class 'NoneType'>
+[2024-06-16T15:58:05.961+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Air_pollution_data_pipeline, task_id=avg_emission_by_year, run_id=scheduled__2024-06-15T00:00:00+00:00, execution_date=20240615T000000, start_date=20240616T155805, end_date=20240616T155805
+[2024-06-16T15:58:05.979+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 69 for task avg_emission_by_year (Invalid file path or buffer object type: <class 'NoneType'>; 606)
+[2024-06-16T15:58:05.999+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-16T15:58:06.033+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-16T15:58:06.037+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-16T16:54:57.106+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-16T16:54:57.155+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year scheduled__2024-06-15T00:00:00+00:00 [queued]>
+[2024-06-16T16:54:57.168+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year scheduled__2024-06-15T00:00:00+00:00 [queued]>
+[2024-06-16T16:54:57.169+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 6
+[2024-06-16T16:54:57.193+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): avg_emission_by_year> on 2024-06-15 00:00:00+00:00
+[2024-06-16T16:54:57.201+0000] {standard_task_runner.py:63} INFO - Started process 3873 to run task
+[2024-06-16T16:54:57.208+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'avg_emission_by_year', 'scheduled__2024-06-15T00:00:00+00:00', '--job-id', '440', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmphofa75ff']
+[2024-06-16T16:54:57.212+0000] {standard_task_runner.py:91} INFO - Job 440: Subtask avg_emission_by_year
+[2024-06-16T16:54:57.287+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year scheduled__2024-06-15T00:00:00+00:00 [running]> on host 333385971b19
+[2024-06-16T16:54:57.687+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='avg_emission_by_year' AIRFLOW_CTX_EXECUTION_DATE='2024-06-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-15T00:00:00+00:00'
+[2024-06-16T16:54:57.690+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-16T16:54:57.691+0000] {summary_analysis.py:33} INFO - starting average pollutants emission calculation
+[2024-06-16T16:54:57.735+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/statistical_analysis/summary_analysis.py:36 FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+[2024-06-16T16:54:58.096+0000] {summary_analysis.py:45} ERROR - error calculating average emission
+Traceback (most recent call last):
+  File "/opt/airflow/dags/statistical_analysis/summary_analysis.py", line 39, in avg_emission_by_year
+    avg_emision = sub_data.groupby('Year').mean().reset_index()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/frame.py", line 9183, in groupby
+    return DataFrameGroupBy(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 1329, in __init__
+    grouper, exclusions, obj = get_grouper(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/grouper.py", line 1043, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Year'
+[2024-06-16T16:54:58.101+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-16T16:54:58.102+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/statistical_analysis/summary_analysis.py", line 39, in avg_emission_by_year
+    avg_emision = sub_data.groupby('Year').mean().reset_index()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/frame.py", line 9183, in groupby
+    return DataFrameGroupBy(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/groupby.py", line 1329, in __init__
+    grouper, exclusions, obj = get_grouper(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/grouper.py", line 1043, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Year'
+[2024-06-16T16:54:58.126+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Air_pollution_data_pipeline, task_id=avg_emission_by_year, run_id=scheduled__2024-06-15T00:00:00+00:00, execution_date=20240615T000000, start_date=20240616T165457, end_date=20240616T165458
+[2024-06-16T16:54:58.163+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 440 for task avg_emission_by_year ('Year'; 3873)
+[2024-06-16T16:54:58.225+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-16T16:54:58.272+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-16T16:54:58.275+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-17T04:06:11.483+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-17T04:06:11.540+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year scheduled__2024-06-15T00:00:00+00:00 [queued]>
+[2024-06-17T04:06:11.559+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year scheduled__2024-06-15T00:00:00+00:00 [queued]>
+[2024-06-17T04:06:11.560+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 6
+[2024-06-17T04:06:11.587+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): avg_emission_by_year> on 2024-06-15 00:00:00+00:00
+[2024-06-17T04:06:11.597+0000] {standard_task_runner.py:63} INFO - Started process 643 to run task
+[2024-06-17T04:06:11.604+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'avg_emission_by_year', 'scheduled__2024-06-15T00:00:00+00:00', '--job-id', '89', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmp93a4lwop']
+[2024-06-17T04:06:11.608+0000] {standard_task_runner.py:91} INFO - Job 89: Subtask avg_emission_by_year
+[2024-06-17T04:06:11.702+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.avg_emission_by_year scheduled__2024-06-15T00:00:00+00:00 [running]> on host fa4d239664b0
+[2024-06-17T04:06:12.003+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='avg_emission_by_year' AIRFLOW_CTX_EXECUTION_DATE='2024-06-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-15T00:00:00+00:00'
+[2024-06-17T04:06:12.014+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-17T04:06:12.015+0000] {summary_analysis.py:33} INFO - starting average pollutants emission calculation
+[2024-06-17T04:06:12.033+0000] {summary_analysis.py:45} ERROR - error calculating average emission
+Traceback (most recent call last):
+  File "/opt/airflow/dags/statistical_analysis/summary_analysis.py", line 36, in avg_emission_by_year
+    val_data = pd.read_json(val_data)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 791, in read_json
+    json_reader = JsonReader(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 904, in __init__
+    data = self._get_data_from_filepath(filepath_or_buffer)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 944, in _get_data_from_filepath
+    self.handles = get_handle(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 728, in get_handle
+    ioargs = _get_filepath_or_buffer(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 472, in _get_filepath_or_buffer
+    raise ValueError(msg)
+ValueError: Invalid file path or buffer object type: <class 'NoneType'>
+[2024-06-17T04:06:12.046+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-17T04:06:12.047+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/statistical_analysis/summary_analysis.py", line 36, in avg_emission_by_year
+    val_data = pd.read_json(val_data)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 791, in read_json
+    json_reader = JsonReader(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 904, in __init__
+    data = self._get_data_from_filepath(filepath_or_buffer)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 944, in _get_data_from_filepath
+    self.handles = get_handle(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 728, in get_handle
+    ioargs = _get_filepath_or_buffer(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 472, in _get_filepath_or_buffer
+    raise ValueError(msg)
+ValueError: Invalid file path or buffer object type: <class 'NoneType'>
+[2024-06-17T04:06:12.071+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Air_pollution_data_pipeline, task_id=avg_emission_by_year, run_id=scheduled__2024-06-15T00:00:00+00:00, execution_date=20240615T000000, start_date=20240617T040611, end_date=20240617T040612
+[2024-06-17T04:06:12.107+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 89 for task avg_emission_by_year (Invalid file path or buffer object type: <class 'NoneType'>; 643)
+[2024-06-17T04:06:12.147+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-17T04:06:12.170+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

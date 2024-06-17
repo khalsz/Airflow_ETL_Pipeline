@@ -1,0 +1,25 @@
+[2024-06-16T16:57:58.892+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-16T16:57:58.944+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.validator manual__2024-06-16T16:49:27+00:00 [queued]>
+[2024-06-16T16:57:58.959+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.validator manual__2024-06-16T16:49:27+00:00 [queued]>
+[2024-06-16T16:57:58.960+0000] {taskinstance.py:2306} INFO - Starting attempt 5 of 6
+[2024-06-16T16:57:58.988+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): validator> on 2024-06-16 16:49:27+00:00
+[2024-06-16T16:57:58.999+0000] {standard_task_runner.py:63} INFO - Started process 3998 to run task
+[2024-06-16T16:57:59.015+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'validator', 'manual__2024-06-16T16:49:27+00:00', '--job-id', '456', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmp4mm26144']
+[2024-06-16T16:57:59.020+0000] {standard_task_runner.py:91} INFO - Job 456: Subtask validator
+[2024-06-16T16:57:59.180+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.validator manual__2024-06-16T16:49:27+00:00 [running]> on host 333385971b19
+[2024-06-16T16:57:59.692+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='validator' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T16:49:27+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-16T16:49:27+00:00'
+[2024-06-16T16:57:59.694+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-16T16:57:59.695+0000] {validate.py:11} INFO - stating data validation/transformation process
+[2024-06-16T16:57:59.731+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/validate/validate.py:14 FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+[2024-06-16T16:57:59.999+0000] {python.py:237} INFO - Done. Returned value was: (['Ammonia_NH_emissions', 'Black_carbon_BC_emissions', 'Carbon_monoxide_CO_emissions', 'Entity', 'Nitrogen_oxide_NOx', 'Non_methane_volatile_organic_compounds_NMVOC_emissions', 'Organic_carbon_OC_emissions', 'Sulphur_dioxide_SO_emissions', 'Year'], {'Ammonia_NH_emissions': 'float64', 'Black_carbon_BC_emissions': 'float64', 'Carbon_monoxide_CO_emissions': 'float64', 'Code': 'object', 'Entity': 'object', 'Nitrogen_oxide_NOx': 'float64', 'Non_methane_volatile_organic_compounds_NMVOC_emissions': 'float64', 'Organic_carbon_OC_emissions': 'float64', 'Sulphur_dioxide_SO_emissions': 'float64', 'Year': 'int64'})
+[2024-06-16T16:58:00.000+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-16T16:58:00.013+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 474, in _execute_task
+    raise AirflowException(
+airflow.exceptions.AirflowException: Returned output was type <class 'tuple'> expected dictionary for multiple_outputs
+[2024-06-16T16:58:00.017+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Air_pollution_data_pipeline, task_id=validator, run_id=manual__2024-06-16T16:49:27+00:00, execution_date=20240616T164927, start_date=20240616T165758, end_date=20240616T165800
+[2024-06-16T16:58:00.035+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 456 for task validator (Returned output was type <class 'tuple'> expected dictionary for multiple_outputs; 3998)
+[2024-06-16T16:58:00.077+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-16T16:58:00.115+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-16T16:58:00.118+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

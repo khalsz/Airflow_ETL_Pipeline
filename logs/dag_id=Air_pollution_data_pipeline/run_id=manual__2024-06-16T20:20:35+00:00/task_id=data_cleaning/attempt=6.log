@@ -1,0 +1,34 @@
+[2024-06-16T20:31:26.168+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-16T20:31:26.318+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.data_cleaning manual__2024-06-16T20:20:35+00:00 [queued]>
+[2024-06-16T20:31:26.357+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.data_cleaning manual__2024-06-16T20:20:35+00:00 [queued]>
+[2024-06-16T20:31:26.357+0000] {taskinstance.py:2306} INFO - Starting attempt 6 of 6
+[2024-06-16T20:31:26.408+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): data_cleaning> on 2024-06-16 20:20:35+00:00
+[2024-06-16T20:31:26.425+0000] {standard_task_runner.py:63} INFO - Started process 8438 to run task
+[2024-06-16T20:31:26.435+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'data_cleaning', 'manual__2024-06-16T20:20:35+00:00', '--job-id', '878', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpcnf6cnr9']
+[2024-06-16T20:31:26.454+0000] {standard_task_runner.py:91} INFO - Job 878: Subtask data_cleaning
+[2024-06-16T20:31:26.704+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.data_cleaning manual__2024-06-16T20:20:35+00:00 [running]> on host 333385971b19
+[2024-06-16T20:31:27.796+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='data_cleaning' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T20:20:35+00:00' AIRFLOW_CTX_TRY_NUMBER='6' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-16T20:20:35+00:00'
+[2024-06-16T20:31:27.800+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-16T20:31:27.804+0000] {data_clean.py:15} INFO - starting data cleaning process
+[2024-06-16T20:31:27.917+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/dataload/processing/data_clean.py:17 FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+[2024-06-16T20:31:28.641+0000] {data_clean.py:34} INFO - saving cleaned data to csv
+[2024-06-16T20:31:29.701+0000] {data_clean.py:38} INFO - successfully saved data to csv
+[2024-06-16T20:31:29.704+0000] {python.py:237} INFO - Done. Returned value was:             Entity Code  ...  Black_carbon_BC_emissions  Ammonia_NH_emissions
+0      Afghanistan  AFG  ...                  1633.0308             7681.0464
+1      Afghanistan  AFG  ...                  1699.5359             8000.8574
+2      Afghanistan  AFG  ...                  1768.5956             8333.9610
+3      Afghanistan  AFG  ...                  1840.2854             8680.9060
+4      Afghanistan  AFG  ...                  1914.6805             9042.2660
+...            ...  ...  ...                        ...                   ...
+48220     Zimbabwe  ZWE  ...                 32050.9020           124543.0160
+48221     Zimbabwe  ZWE  ...                 32552.8750           127205.2700
+48222     Zimbabwe  ZWE  ...                 32467.2950           129910.9300
+48223     Zimbabwe  ZWE  ...                 33174.6050           132651.4800
+48224     Zimbabwe  ZWE  ...                 33231.3200           134480.5800
+
+[45717 rows x 10 columns]
+[2024-06-16T20:31:29.747+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-16T20:31:32.188+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=Air_pollution_data_pipeline, task_id=data_cleaning, run_id=manual__2024-06-16T20:20:35+00:00, execution_date=20240616T202035, start_date=20240616T203126, end_date=20240616T203132
+[2024-06-16T20:31:32.313+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-16T20:31:32.464+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-16T20:31:32.468+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

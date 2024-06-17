@@ -1,0 +1,32 @@
+[2024-06-16T20:15:10.318+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-16T20:15:10.553+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.visualization manual__2024-06-16T20:04:13+00:00 [queued]>
+[2024-06-16T20:15:10.597+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.visualization manual__2024-06-16T20:04:13+00:00 [queued]>
+[2024-06-16T20:15:10.598+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 6
+[2024-06-16T20:15:10.711+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): visualization> on 2024-06-16 20:04:13+00:00
+[2024-06-16T20:15:10.723+0000] {standard_task_runner.py:63} INFO - Started process 7573 to run task
+[2024-06-16T20:15:10.806+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'visualization', 'manual__2024-06-16T20:04:13+00:00', '--job-id', '711', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpuv0mdlj5']
+[2024-06-16T20:15:10.831+0000] {standard_task_runner.py:91} INFO - Job 711: Subtask visualization
+[2024-06-16T20:15:11.327+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.visualization manual__2024-06-16T20:04:13+00:00 [running]> on host 333385971b19
+[2024-06-16T20:15:11.684+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='visualization' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T20:04:13+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-16T20:04:13+00:00'
+[2024-06-16T20:15:11.687+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-16T20:15:11.689+0000] {visualization.py:12} INFO - starting data visualization
+[2024-06-16T20:15:11.693+0000] {visualization.py:31} ERROR - error visualizing data
+Traceback (most recent call last):
+  File "/opt/airflow/dags/statistical_analysis/visualization.py", line 15, in visualization
+    val_data = pd.read_json(val_data)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 791, in read_json
+    json_reader = JsonReader(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 904, in __init__
+    data = self._get_data_from_filepath(filepath_or_buffer)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/json/_json.py", line 944, in _get_data_from_filepath
+    self.handles = get_handle(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 728, in get_handle
+    ioargs = _get_filepath_or_buffer(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/common.py", line 472, in _get_filepath_or_buffer
+    raise ValueError(msg)
+ValueError: Invalid file path or buffer object type: <class 'list'>
+[2024-06-16T20:15:11.696+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-16T20:15:11.697+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-16T20:15:11.718+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=Air_pollution_data_pipeline, task_id=visualization, run_id=manual__2024-06-16T20:04:13+00:00, execution_date=20240616T200413, start_date=20240616T201510, end_date=20240616T201511
+[2024-06-16T20:15:11.771+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-16T20:15:11.803+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
