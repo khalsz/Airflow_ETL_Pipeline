@@ -1,0 +1,75 @@
+[2024-06-17T15:59:36.643+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-17T15:59:36.688+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.insert_into_db_table__2 manual__2024-06-17T15:52:50+00:00 [queued]>
+[2024-06-17T15:59:36.700+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.insert_into_db_table__2 manual__2024-06-17T15:52:50+00:00 [queued]>
+[2024-06-17T15:59:36.701+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 6
+[2024-06-17T15:59:36.724+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): insert_into_db_table__2> on 2024-06-17 15:52:50+00:00
+[2024-06-17T15:59:36.732+0000] {standard_task_runner.py:63} INFO - Started process 5476 to run task
+[2024-06-17T15:59:36.744+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'insert_into_db_table__2', 'manual__2024-06-17T15:52:50+00:00', '--job-id', '1106', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpzg4q1m73']
+[2024-06-17T15:59:36.747+0000] {standard_task_runner.py:91} INFO - Job 1106: Subtask insert_into_db_table__2
+[2024-06-17T15:59:36.813+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.insert_into_db_table__2 manual__2024-06-17T15:52:50+00:00 [running]> on host fa4d239664b0
+[2024-06-17T15:59:36.946+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='insert_into_db_table__2' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T15:52:50+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-17T15:52:50+00:00'
+[2024-06-17T15:59:36.948+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-17T15:59:36.956+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/database/populate_db.py:26 FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+[2024-06-17T15:59:36.970+0000] {populate_db.py:39} INFO - Inserting data into table
+[2024-06-17T15:59:36.972+0000] {baseoperator.py:400} WARNING - SQLExecuteQueryOperator.execute cannot be called outside TaskInstance!
+[2024-06-17T15:59:36.972+0000] {sql.py:276} INFO - Executing: ["\n            INSERT INTO emission_summary_stats (Year, Nitrogen_oxide_NOx, Sulphur_dioxide_SO_emissions, Carbon_monoxide_CO_emissions, Organic_carbon_OC_emissions, Non_methane_volatile_organic_compounds_NMVOC_emissions, Black_carbon_BC_emissions, Ammonia_NH_emissions, summary_stats)\n            VALUES ('45717.0', '45717.0', '45717.0', '45717.0', '45717.0', '45717.0', '45717.0', '45717.0', 'count')\n        ", "\n            INSERT INTO emission_summary_stats (Year, Nitrogen_oxide_NOx, Sulphur_dioxide_SO_emissions, Carbon_monoxide_CO_emissions, Organic_carbon_OC_emissions, Non_methane_volatile_organic_compounds_NMVOC_emissions, Black_carbon_BC_emissions, Ammonia_NH_emissions, summary_stats)\n            VALUES ('1911.2044097382', '285628.6596008223', '427054.8537001305', '2578258.2101170714', '69388.0866882038', '463736.5903423727', '25006.0574584827', '185872.8243646251', 'mean')\n        ", "\n            INSERT INTO emission_summary_stats (Year, Nitrogen_oxide_NOx, Sulphur_dioxide_SO_emissions, Carbon_monoxide_CO_emissions, Organic_carbon_OC_emissions, Non_methane_volatile_organic_compounds_NMVOC_emissions, Black_carbon_BC_emissions, Ammonia_NH_emissions, summary_stats)\n            VALUES ('67.6401001473', '3524839.723219105', '4525329.3834697595', '23246546.971131656', '553392.1190267598', '4726834.392684209', '223952.597645769', '1898858.498607165', 'std')\n        ", "\n            INSERT INTO emission_summary_stats (Year, Nitrogen_oxide_NOx, Sulphur_dioxide_SO_emissions, Carbon_monoxide_CO_emissions, Organic_carbon_OC_emissions, Non_methane_volatile_organic_compounds_NMVOC_emissions, Black_carbon_BC_emissions, Ammonia_NH_emissions, summary_stats)\n            VALUES ('1750.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'min')\n        ", "\n            INSERT INTO emission_summary_stats (Year, Nitrogen_oxide_NOx, Sulphur_dioxide_SO_emissions, Carbon_monoxide_CO_emissions, Organic_carbon_OC_emissions, Non_methane_volatile_organic_compounds_NMVOC_emissions, Black_carbon_BC_emissions, Ammonia_NH_emissions, summary_stats)\n            VALUES ('1854.0', '137.85605', '58.138058', '12165.899', '519.6276', '2124.2761', '131.87717', '1207.5621', '25%')\n        ", "\n            INSERT INTO emission_summary_stats (Year, Nitrogen_oxide_NOx, Sulphur_dioxide_SO_emissions, Carbon_monoxide_CO_emissions, Organic_carbon_OC_emissions, Non_methane_volatile_organic_compounds_NMVOC_emissions, Black_carbon_BC_emissions, Ammonia_NH_emissions, summary_stats)\n            VALUES ('1914.0', '1403.7751', '731.89014', '93669.86', '3824.931', '14941.013', '954.0942', '8457.144', '50%')\n        ", "\n            INSERT INTO emission_summary_stats (Year, Nitrogen_oxide_NOx, Sulphur_dioxide_SO_emissions, Carbon_monoxide_CO_emissions, Organic_carbon_OC_emissions, Non_methane_volatile_organic_compounds_NMVOC_emissions, Black_carbon_BC_emissions, Ammonia_NH_emissions, summary_stats)\n            VALUES ('1970.0', '22905.088', '21654.107', '470762.56', '17826.033', '90858.164', '4994.4277', '39316.773', '75%')\n        ", "\n            INSERT INTO emission_summary_stats (Year, Nitrogen_oxide_NOx, Sulphur_dioxide_SO_emissions, Carbon_monoxide_CO_emissions, Organic_carbon_OC_emissions, Non_methane_volatile_organic_compounds_NMVOC_emissions, Black_carbon_BC_emissions, Ammonia_NH_emissions, summary_stats)\n            VALUES ('2022.0', '109243090.0', '134596620.0', '599913340.0', '13618318.0', '135481700.0', '6141969.0', '63947644.0', 'max')\n        "]
+[2024-06-17T15:59:36.984+0000] {base.py:84} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-06-17T15:59:36.996+0000] {base.py:84} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-06-17T15:59:37.001+0000] {sql.py:487} INFO - Running statement: 
+            INSERT INTO emission_summary_stats (Year, Nitrogen_oxide_NOx, Sulphur_dioxide_SO_emissions, Carbon_monoxide_CO_emissions, Organic_carbon_OC_emissions, Non_methane_volatile_organic_compounds_NMVOC_emissions, Black_carbon_BC_emissions, Ammonia_NH_emissions, summary_stats)
+            VALUES ('45717.0', '45717.0', '45717.0', '45717.0', '45717.0', '45717.0', '45717.0', '45717.0', 'count')
+        , parameters: None
+[2024-06-17T15:59:37.003+0000] {populate_db.py:50} ERROR - Error inserting data into table
+Traceback (most recent call last):
+  File "/opt/airflow/dags/database/populate_db.py", line 45, in insert_into_db_table
+    insert_data_task.execute(context=None)  # Execute the task
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/hooks/sql.py", line 435, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/hooks/sql.py", line 492, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedColumn: column "nitrogen_oxide_nox" of relation "emission_summary_stats" does not exist
+LINE 2: ...        INSERT INTO emission_summary_stats (Year, Nitrogen_o...
+                                                             ^
+
+[2024-06-17T15:59:37.006+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-17T15:59:37.007+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/database/populate_db.py", line 45, in insert_into_db_table
+    insert_data_task.execute(context=None)  # Execute the task
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/hooks/sql.py", line 435, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/hooks/sql.py", line 492, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedColumn: column "nitrogen_oxide_nox" of relation "emission_summary_stats" does not exist
+LINE 2: ...        INSERT INTO emission_summary_stats (Year, Nitrogen_o...
+                                                             ^
+
+[2024-06-17T15:59:37.017+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Air_pollution_data_pipeline, task_id=insert_into_db_table__2, run_id=manual__2024-06-17T15:52:50+00:00, execution_date=20240617T155250, start_date=20240617T155936, end_date=20240617T155937
+[2024-06-17T15:59:37.035+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1106 for task insert_into_db_table__2 (column "nitrogen_oxide_nox" of relation "emission_summary_stats" does not exist
+LINE 2: ...        INSERT INTO emission_summary_stats (Year, Nitrogen_o...
+                                                             ^
+; 5476)
+[2024-06-17T15:59:37.071+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-17T15:59:37.081+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

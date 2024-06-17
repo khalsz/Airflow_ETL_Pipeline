@@ -1,0 +1,19 @@
+[2024-06-16T00:21:01.263+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-16T00:21:01.356+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.load_data manual__2024-06-16T00:20:51+00:00 [queued]>
+[2024-06-16T00:21:01.388+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.load_data manual__2024-06-16T00:20:51+00:00 [queued]>
+[2024-06-16T00:21:01.389+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 6
+[2024-06-16T00:21:01.456+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): load_data> on 2024-06-16 00:20:51+00:00
+[2024-06-16T00:21:01.480+0000] {standard_task_runner.py:63} INFO - Started process 4011 to run task
+[2024-06-16T00:21:01.489+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'load_data', 'manual__2024-06-16T00:20:51+00:00', '--job-id', '119', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpfa9cwzd0']
+[2024-06-16T00:21:01.498+0000] {standard_task_runner.py:91} INFO - Job 119: Subtask load_data
+[2024-06-16T00:21:01.670+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.load_data manual__2024-06-16T00:20:51+00:00 [running]> on host 6e26965f02f1
+[2024-06-16T00:21:01.868+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T00:20:51+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-16T00:20:51+00:00'
+[2024-06-16T00:21:01.870+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-16T00:21:01.871+0000] {data_load.py:11} INFO - starting data extration from source
+[2024-06-16T00:21:04.917+0000] {data_load.py:16} INFO - successfully completed data extraction, cleaning and loading to local drive
+[2024-06-16T00:21:04.919+0000] {python.py:237} INFO - Done. Returned value was: {"Entity":{},"Code":{},"Year":{},"Nitrogen oxide (NOx)":{},"Sulphur dioxide (SO\u00e2\u0082\u0082) emissions":{},"Carbon monoxide (CO) emissions":{},"Organic carbon (OC) emissions":{},"Non-methane volatile organic compounds (NMVOC) emissions":{},"Black carbon (BC) emissions":{},"Ammonia (NH\u00e2\u0082\u0083) emissions":{},"Unnamed: 10":{}}
+[2024-06-16T00:21:04.920+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-16T00:21:04.957+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=Air_pollution_data_pipeline, task_id=load_data, run_id=manual__2024-06-16T00:20:51+00:00, execution_date=20240616T002051, start_date=20240616T002101, end_date=20240616T002104
+[2024-06-16T00:21:05.005+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-16T00:21:05.057+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-16T00:21:05.061+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
