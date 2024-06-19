@@ -10059,3 +10059,108 @@ UnboundLocalError: local variable 'creat_tbl' referenced before assignment
 [2024-06-19T22:43:52.401+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:43:52.401+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2024-06-19T22:43:52.428+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:43:52.428+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
 [2024-06-19T22:43:52.454+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.241 seconds
+[2024-06-19T22:44:22.685+0000] {processor.py:161} INFO - Started process (PID=1324) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:44:22.687+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:44:22.689+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:44:22.689+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:44:23.525+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:44:23.577+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:44:23.577+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:44:23.599+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:44:23.599+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:44:23.626+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.951 seconds
+[2024-06-19T22:44:53.699+0000] {processor.py:161} INFO - Started process (PID=1336) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:44:53.701+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:44:53.705+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:44:53.704+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:44:55.028+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:44:55.110+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:44:55.109+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:44:55.139+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:44:55.138+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:44:55.177+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.492 seconds
+[2024-06-19T22:45:25.429+0000] {processor.py:161} INFO - Started process (PID=1348) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:45:25.433+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:45:25.436+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:45:25.436+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:45:27.094+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:45:27.147+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:45:27.146+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:45:27.168+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:45:27.168+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:45:27.191+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.774 seconds
+[2024-06-19T22:45:58.094+0000] {processor.py:161} INFO - Started process (PID=1360) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:45:58.096+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:45:58.098+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:45:58.098+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:45:59.651+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:45:59.714+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:45:59.713+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:45:59.745+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:45:59.745+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:45:59.771+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.689 seconds
+[2024-06-19T22:46:30.032+0000] {processor.py:161} INFO - Started process (PID=1372) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:46:30.035+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:46:30.039+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:46:30.038+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:46:31.055+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:46:31.146+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:46:31.145+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:46:31.174+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:46:31.174+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:46:31.199+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.189 seconds
+[2024-06-19T22:47:01.474+0000] {processor.py:161} INFO - Started process (PID=1384) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:47:01.478+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:47:01.483+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:47:01.483+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:47:02.645+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:47:02.698+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:47:02.698+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:47:02.719+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:47:02.719+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:47:02.743+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.288 seconds
+[2024-06-19T22:47:33.004+0000] {processor.py:161} INFO - Started process (PID=1396) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:47:33.006+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:47:33.009+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:47:33.009+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:47:33.806+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:47:33.858+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:47:33.857+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:47:33.880+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:47:33.880+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:47:33.911+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.920 seconds
+[2024-06-19T22:48:04.172+0000] {processor.py:161} INFO - Started process (PID=1408) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:48:04.175+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:48:04.179+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:48:04.178+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:48:05.101+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:48:05.160+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:48:05.159+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:48:05.181+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:48:05.181+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:48:05.205+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.053 seconds
+[2024-06-19T22:48:35.440+0000] {processor.py:161} INFO - Started process (PID=1420) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:48:35.443+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:48:35.448+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:48:35.447+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:48:36.623+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:48:36.850+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:48:36.850+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:48:36.876+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:48:36.875+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:48:36.901+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.475 seconds
+[2024-06-19T22:49:07.180+0000] {processor.py:161} INFO - Started process (PID=1432) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:49:07.184+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:49:07.188+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:49:07.187+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:49:08.066+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:49:08.120+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:49:08.119+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:49:08.143+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:49:08.142+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:49:08.168+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.001 seconds
+[2024-06-19T22:49:38.432+0000] {processor.py:161} INFO - Started process (PID=1444) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:49:38.434+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:49:38.444+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:49:38.443+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:49:39.572+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:49:39.701+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:49:39.700+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:49:39.722+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:49:39.721+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:49:39.753+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.332 seconds
+[2024-06-19T22:50:10.011+0000] {processor.py:161} INFO - Started process (PID=1462) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:50:10.013+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:50:10.016+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:50:10.016+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:50:11.333+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:50:11.391+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:50:11.390+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:50:11.420+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:50:11.419+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:50:11.441+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.440 seconds
+[2024-06-19T22:50:41.688+0000] {processor.py:161} INFO - Started process (PID=1474) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:50:41.690+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:50:41.693+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:50:41.693+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:50:42.642+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:50:42.744+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:50:42.744+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:50:42.772+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:50:42.771+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:50:42.796+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.120 seconds
+[2024-06-19T22:51:12.934+0000] {processor.py:161} INFO - Started process (PID=1486) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:51:12.936+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:51:12.938+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:51:12.938+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:51:14.101+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:51:14.258+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:51:14.257+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:51:14.279+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:51:14.279+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:51:14.307+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.381 seconds
+[2024-06-19T22:51:44.557+0000] {processor.py:161} INFO - Started process (PID=1498) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:51:44.559+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:51:44.563+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:51:44.562+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:51:45.584+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:51:45.784+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:51:45.784+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:51:45.807+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:51:45.807+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:51:45.827+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.295 seconds
