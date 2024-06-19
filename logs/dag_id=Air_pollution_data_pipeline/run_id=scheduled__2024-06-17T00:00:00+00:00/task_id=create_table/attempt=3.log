@@ -1,0 +1,195 @@
+[2024-06-18T11:54:11.028+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T11:54:11.279+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.create_table scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T11:54:11.369+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.create_table scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T11:54:11.370+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 6
+[2024-06-18T11:54:11.483+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): create_table> on 2024-06-17 00:00:00+00:00
+[2024-06-18T11:54:11.531+0000] {standard_task_runner.py:63} INFO - Started process 545 to run task
+[2024-06-18T11:54:11.556+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'create_table', 'scheduled__2024-06-17T00:00:00+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmp0v1er99a']
+[2024-06-18T11:54:11.578+0000] {standard_task_runner.py:91} INFO - Job 38: Subtask create_table
+[2024-06-18T11:54:11.914+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.create_table scheduled__2024-06-17T00:00:00+00:00 [running]> on host dc6d39ed067c
+[2024-06-18T11:54:12.738+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-17T00:00:00+00:00'
+[2024-06-18T11:54:12.744+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T11:54:12.746+0000] {create_table.py:71} INFO - creating table
+[2024-06-18T11:54:12.751+0000] {baseoperator.py:400} WARNING - SQLExecuteQueryOperator.execute cannot be called outside TaskInstance!
+[2024-06-18T11:54:12.752+0000] {sql.py:276} INFO - Executing: 
+        CREATE TABLE IF NOT EXISTS emission (
+            Entity VARCHAR(100),
+            Code VARCHAR(100),
+            Year INT,
+            "Nitrogen_oxide_NOx" FLOAT, 
+            "Sulphur_dioxide_SO_emissions" FLOAT, 
+            "Carbon_monoxide_CO_emissions" FLOAT, 
+            "Organic_carbon_OC_emissions" FLOAT, 
+            "Non_methane_volatile_organic_compounds_NMVOC_emissions" FLOAT, 
+            "Black_carbon_BC_emissions" FLOAT,
+            "Ammonia_NH_emissions" FLOAT
+        );
+
+[2024-06-18T11:54:12.795+0000] {base.py:84} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-06-18T11:54:12.832+0000] {base.py:84} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-06-18T11:54:12.865+0000] {sql.py:487} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS emission (
+            Entity VARCHAR(100),
+            Code VARCHAR(100),
+            Year INT,
+            "Nitrogen_oxide_NOx" FLOAT, 
+            "Sulphur_dioxide_SO_emissions" FLOAT, 
+            "Carbon_monoxide_CO_emissions" FLOAT, 
+            "Organic_carbon_OC_emissions" FLOAT, 
+            "Non_methane_volatile_organic_compounds_NMVOC_emissions" FLOAT, 
+            "Black_carbon_BC_emissions" FLOAT,
+            "Ammonia_NH_emissions" FLOAT
+        );
+, parameters: None
+[2024-06-18T11:54:12.884+0000] {create_table.py:79} INFO - successfully create table
+[2024-06-18T11:54:12.885+0000] {create_table.py:71} INFO - creating table
+[2024-06-18T11:54:12.887+0000] {baseoperator.py:400} WARNING - SQLExecuteQueryOperator.execute cannot be called outside TaskInstance!
+[2024-06-18T11:54:12.888+0000] {sql.py:276} INFO - Executing: 
+        CREATE TABLE IF NOT EXISTS avg_emission (
+            Year INT,
+            "Nitrogen_oxide_NOx" FLOAT, 
+            "Sulphur_dioxide_SO_emissions" FLOAT, 
+            "Carbon_monoxide_CO_emissions" FLOAT, 
+            "Organic_carbon_OC_emissions" FLOAT, 
+            "Non_methane_volatile_organic_compounds_NMVOC_emissions" FLOAT, 
+            "Black_carbon_BC_emissions" FLOAT,
+            "Ammonia_NH_emissions" FLOAT
+        );
+
+[2024-06-18T11:54:12.973+0000] {base.py:84} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-06-18T11:54:13.046+0000] {base.py:84} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-06-18T11:54:13.067+0000] {sql.py:487} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS avg_emission (
+            Year INT,
+            "Nitrogen_oxide_NOx" FLOAT, 
+            "Sulphur_dioxide_SO_emissions" FLOAT, 
+            "Carbon_monoxide_CO_emissions" FLOAT, 
+            "Organic_carbon_OC_emissions" FLOAT, 
+            "Non_methane_volatile_organic_compounds_NMVOC_emissions" FLOAT, 
+            "Black_carbon_BC_emissions" FLOAT,
+            "Ammonia_NH_emissions" FLOAT
+        );
+, parameters: None
+[2024-06-18T11:54:13.071+0000] {create_table.py:79} INFO - successfully create table
+[2024-06-18T11:54:13.072+0000] {create_table.py:71} INFO - creating table
+[2024-06-18T11:54:13.074+0000] {baseoperator.py:400} WARNING - SQLExecuteQueryOperator.execute cannot be called outside TaskInstance!
+[2024-06-18T11:54:13.075+0000] {sql.py:276} INFO - Executing: 
+        CREATE TABLE IF NOT EXISTS emission_summary_stats (
+            Year INT,
+            summary_stats VARCHAR(100),
+            "Nitrogen_oxide_NOx" FLOAT, 
+            "Sulphur_dioxide_SO_emissions" FLOAT, 
+            "Carbon_monoxide_CO_emissions" FLOAT, 
+            "Organic_carbon_OC_emissions" FLOAT, 
+            "Non_methane_volatile_organic_compounds_NMVOC_emissions" FLOAT, 
+            "Black_carbon_BC_emissions" FLOAT,
+            "Ammonia_NH_emissions" FLOAT
+        );
+
+[2024-06-18T11:54:13.115+0000] {base.py:84} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-06-18T11:54:13.173+0000] {base.py:84} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-06-18T11:54:13.207+0000] {sql.py:487} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS emission_summary_stats (
+            Year INT,
+            summary_stats VARCHAR(100),
+            "Nitrogen_oxide_NOx" FLOAT, 
+            "Sulphur_dioxide_SO_emissions" FLOAT, 
+            "Carbon_monoxide_CO_emissions" FLOAT, 
+            "Organic_carbon_OC_emissions" FLOAT, 
+            "Non_methane_volatile_organic_compounds_NMVOC_emissions" FLOAT, 
+            "Black_carbon_BC_emissions" FLOAT,
+            "Ammonia_NH_emissions" FLOAT
+        );
+, parameters: None
+[2024-06-18T11:54:13.242+0000] {create_table.py:79} INFO - successfully create table
+[2024-06-18T11:54:13.243+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-18T11:54:13.244+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T11:54:13.354+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=Air_pollution_data_pipeline, task_id=create_table, run_id=scheduled__2024-06-17T00:00:00+00:00, execution_date=20240617T000000, start_date=20240618T115411, end_date=20240618T115413
+[2024-06-18T11:54:13.524+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-18T11:54:13.763+0000] {taskinstance.py:3503} INFO - 3 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T11:54:13.791+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-19T20:09:36.514+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-19T20:09:36.579+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.create_table scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-19T20:09:36.598+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.create_table scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-19T20:09:36.599+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 6
+[2024-06-19T20:09:36.630+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): create_table> on 2024-06-17 00:00:00+00:00
+[2024-06-19T20:09:36.638+0000] {standard_task_runner.py:63} INFO - Started process 545 to run task
+[2024-06-19T20:09:36.643+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'create_table', 'scheduled__2024-06-17T00:00:00+00:00', '--job-id', '54', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpegt_0bxf']
+[2024-06-19T20:09:36.647+0000] {standard_task_runner.py:91} INFO - Job 54: Subtask create_table
+[2024-06-19T20:09:36.719+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.create_table scheduled__2024-06-17T00:00:00+00:00 [running]> on host 0bfb368fa6be
+[2024-06-19T20:09:36.844+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-17T00:00:00+00:00'
+[2024-06-19T20:09:36.846+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-19T20:09:36.847+0000] {create_table.py:71} INFO - creating table
+[2024-06-19T20:09:36.848+0000] {baseoperator.py:400} WARNING - SQLExecuteQueryOperator.execute cannot be called outside TaskInstance!
+[2024-06-19T20:09:36.848+0000] {sql.py:276} INFO - Executing: 
+        CREATE TABLE IF NOT EXISTS emission (
+            `Entity` VARCHAR(100),
+            `Code` VARCHAR(100),
+            `Year` INT,
+            `Nitrogen_oxide_NOx` FLOAT, 
+            `Sulphur_dioxide_SO_emissions` FLOAT, 
+            `Carbon_monoxide_CO_emissions` FLOAT, 
+            `Organic_carbon_OC_emissions` FLOAT, 
+            `Non_methane_volatile_organic_compounds_NMVOC_emissions` FLOAT, 
+            `Black_carbon_BC_emissions` FLOAT,
+            `Ammonia_NH_emissions` FLOAT
+        );
+
+[2024-06-19T20:09:36.860+0000] {create_table.py:82} ERROR - Error creating table
+Traceback (most recent call last):
+  File "/opt/airflow/dags/database/create_table.py", line 77, in create_table
+    create_table_task.execute(context=None)  # Execute the task
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/operators/sql.py", line 277, in execute
+    hook = self.get_db_hook()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/operators/sql.py", line 188, in get_db_hook
+    return self._hook
+  File "/usr/local/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/operators/sql.py", line 150, in _hook
+    conn = BaseHook.get_connection(conn_id)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/hooks/base.py", line 83, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/connection.py", line 519, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `postgres_localhost` isn't defined
+[2024-06-19T20:09:36.862+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-19T20:09:36.874+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/database/create_table.py", line 77, in create_table
+    create_table_task.execute(context=None)  # Execute the task
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/operators/sql.py", line 277, in execute
+    hook = self.get_db_hook()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/operators/sql.py", line 188, in get_db_hook
+    return self._hook
+  File "/usr/local/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/operators/sql.py", line 150, in _hook
+    conn = BaseHook.get_connection(conn_id)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/hooks/base.py", line 83, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/connection.py", line 519, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `postgres_localhost` isn't defined
+[2024-06-19T20:09:36.879+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Air_pollution_data_pipeline, task_id=create_table, run_id=scheduled__2024-06-17T00:00:00+00:00, execution_date=20240617T000000, start_date=20240619T200936, end_date=20240619T200936
+[2024-06-19T20:09:36.899+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 54 for task create_table (The conn_id `postgres_localhost` isn't defined; 545)
+[2024-06-19T20:09:36.935+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-19T20:09:36.969+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-19T20:09:36.973+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

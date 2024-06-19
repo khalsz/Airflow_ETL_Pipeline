@@ -38,9 +38,15 @@ def data_cleaning(input_data) -> pd.DataFrame:
         #stripping of trailing and leading space in column names
         input_data.columns = input_data.columns.str.strip()
         
+        # Add backtick to Entity value to ensure insertion into table
+        input_data['Entity'] = input_data['Entity'].apply(lambda x: x.replace("'", ""))
+        
         # replace space and hyphens in column names with underscore
         input_data.columns = input_data.columns.str.replace(' ', "_")
         input_data.columns = input_data.columns.str.replace('-', "_")
+        
+        # Add backticks to column names to ensure insertion into database table
+        input_data.columns = input_data.columns.map(lambda x: f'`{x}`')
         
         # Remove special characters from column names
         input_data.columns = input_data.columns.map(lambda x: remove_special_characters(x))

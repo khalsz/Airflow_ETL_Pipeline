@@ -11,13 +11,13 @@ create_statement1 = """
             Entity VARCHAR(100),
             Code VARCHAR(100),
             Year INT,
-            "Nitrogen_oxide_NOx" FLOAT, 
-            "Sulphur_dioxide_SO_emissions" FLOAT, 
-            "Carbon_monoxide_CO_emissions" FLOAT, 
-            "Organic_carbon_OC_emissions" FLOAT, 
-            "Non_methane_volatile_organic_compounds_NMVOC_emissions" FLOAT, 
-            "Black_carbon_BC_emissions" FLOAT,
-            "Ammonia_NH_emissions" FLOAT
+            Nitrogen_oxide_NOx FLOAT, 
+            Sulphur_dioxide_SO_emissions FLOAT, 
+            Carbon_monoxide_CO_emissions FLOAT, 
+            Organic_carbon_OC_emissions FLOAT, 
+            Non_methane_volatile_organic_compounds_NMVOC_emissions FLOAT, 
+            Black_carbon_BC_emissions FLOAT,
+            Ammonia_NH_emissions FLOAT
         );
 """
 
@@ -25,13 +25,13 @@ create_statement1 = """
 create_statement2 = """
         CREATE TABLE IF NOT EXISTS avg_emission (
             Year INT,
-            "Nitrogen_oxide_NOx" FLOAT, 
-            "Sulphur_dioxide_SO_emissions" FLOAT, 
-            "Carbon_monoxide_CO_emissions" FLOAT, 
-            "Organic_carbon_OC_emissions" FLOAT, 
-            "Non_methane_volatile_organic_compounds_NMVOC_emissions" FLOAT, 
-            "Black_carbon_BC_emissions" FLOAT,
-            "Ammonia_NH_emissions" FLOAT
+            Nitrogen_oxide_NOx FLOAT, 
+            Sulphur_dioxide_SO_emissions FLOAT, 
+            Carbon_monoxide_CO_emissions FLOAT, 
+            Organic_carbon_OC_emissions FLOAT, 
+            Non_methane_volatile_organic_compounds_NMVOC_emissions FLOAT, 
+            Black_carbon_BC_emissions FLOAT,
+            Ammonia_NH_emissions FLOAT
         );
 """
 
@@ -40,13 +40,13 @@ create_statement3 = """
         CREATE TABLE IF NOT EXISTS emission_summary_stats (
             Year INT,
             summary_stats VARCHAR(100),
-            "Nitrogen_oxide_NOx" FLOAT, 
-            "Sulphur_dioxide_SO_emissions" FLOAT, 
-            "Carbon_monoxide_CO_emissions" FLOAT, 
-            "Organic_carbon_OC_emissions" FLOAT, 
-            "Non_methane_volatile_organic_compounds_NMVOC_emissions" FLOAT, 
-            "Black_carbon_BC_emissions" FLOAT,
-            "Ammonia_NH_emissions" FLOAT
+            Nitrogen_oxide_NOx FLOAT, 
+            Sulphur_dioxide_SO_emissions FLOAT, 
+            Carbon_monoxide_CO_emissions FLOAT, 
+            Organic_carbon_OC_emissions FLOAT, 
+            Non_methane_volatile_organic_compounds_NMVOC_emissions FLOAT, 
+            Black_carbon_BC_emissions FLOAT,
+            Ammonia_NH_emissions FLOAT
         );
 """
 

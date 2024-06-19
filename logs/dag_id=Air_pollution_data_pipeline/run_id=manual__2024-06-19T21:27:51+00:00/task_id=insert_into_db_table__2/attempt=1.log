@@ -1,0 +1,32 @@
+[2024-06-19T21:28:30.569+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-19T21:28:30.756+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.insert_into_db_table__2 manual__2024-06-19T21:27:51+00:00 [queued]>
+[2024-06-19T21:28:30.797+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Air_pollution_data_pipeline.insert_into_db_table__2 manual__2024-06-19T21:27:51+00:00 [queued]>
+[2024-06-19T21:28:30.802+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 6
+[2024-06-19T21:28:30.851+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): insert_into_db_table__2> on 2024-06-19 21:27:51+00:00
+[2024-06-19T21:28:30.882+0000] {standard_task_runner.py:63} INFO - Started process 421 to run task
+[2024-06-19T21:28:30.912+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Air_pollution_data_pipeline', 'insert_into_db_table__2', 'manual__2024-06-19T21:27:51+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmph7uukkfy']
+[2024-06-19T21:28:30.921+0000] {standard_task_runner.py:91} INFO - Job 22: Subtask insert_into_db_table__2
+[2024-06-19T21:28:31.235+0000] {task_command.py:426} INFO - Running <TaskInstance: Air_pollution_data_pipeline.insert_into_db_table__2 manual__2024-06-19T21:27:51+00:00 [running]> on host 507c955ac4bb
+[2024-06-19T21:28:31.680+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='khalid' AIRFLOW_CTX_DAG_ID='Air_pollution_data_pipeline' AIRFLOW_CTX_TASK_ID='insert_into_db_table__2' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T21:27:51+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-19T21:27:51+00:00'
+[2024-06-19T21:28:31.683+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-19T21:28:31.702+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/database/populate_db.py:29 FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+[2024-06-19T21:28:31.750+0000] {populate_db.py:48} INFO - Inserting data into table
+[2024-06-19T21:28:31.758+0000] {baseoperator.py:400} WARNING - SQLExecuteQueryOperator.execute cannot be called outside TaskInstance!
+[2024-06-19T21:28:31.759+0000] {sql.py:276} INFO - Executing: 
+            INSERT INTO emission_summary_stats (Year, Nitrogen_oxide_NOx, Sulphur_dioxide_SO_emissions, Carbon_monoxide_CO_emissions, Organic_carbon_OC_emissions, Non_methane_volatile_organic_compounds_NMVOC_emissions, Black_carbon_BC_emissions, Ammonia_NH_emissions, summary_stats)
+            VALUES (45717.0, 45717.0, 45717.0, 45717.0, 45717.0, 45717.0, 45717.0, 45717.0, 'count'),(1911.2044097382, 285628.6596008223, 427054.8537001305, 2578258.2101170714, 69388.0866882038, 463736.5903423727, 25006.0574584827, 185872.8243646251, 'mean'),(67.6401001473, 3524839.723219105, 4525329.3834697595, 23246546.971131656, 553392.1190267598, 4726834.392684209, 223952.597645769, 1898858.498607165, 'std'),(1750.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 'min'),(1854.0, 137.85605, 58.138058, 12165.899, 519.6276, 2124.2761, 131.87717, 1207.5621, '25%'),(1914.0, 1403.7751, 731.89014, 93669.86, 3824.931, 14941.013, 954.0942, 8457.144, '50%'),(1970.0, 22905.088, 21654.107, 470762.56, 17826.033, 90858.164, 4994.4277, 39316.773, '75%'),(2022.0, 109243090.0, 134596620.0, 599913340.0, 13618318.0, 135481700.0, 6141969.0, 63947644.0, 'max')
+        
+[2024-06-19T21:28:31.816+0000] {base.py:84} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-06-19T21:28:31.848+0000] {base.py:84} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-06-19T21:28:31.862+0000] {sql.py:487} INFO - Running statement: 
+            INSERT INTO emission_summary_stats (Year, Nitrogen_oxide_NOx, Sulphur_dioxide_SO_emissions, Carbon_monoxide_CO_emissions, Organic_carbon_OC_emissions, Non_methane_volatile_organic_compounds_NMVOC_emissions, Black_carbon_BC_emissions, Ammonia_NH_emissions, summary_stats)
+            VALUES (45717.0, 45717.0, 45717.0, 45717.0, 45717.0, 45717.0, 45717.0, 45717.0, 'count'),(1911.2044097382, 285628.6596008223, 427054.8537001305, 2578258.2101170714, 69388.0866882038, 463736.5903423727, 25006.0574584827, 185872.8243646251, 'mean'),(67.6401001473, 3524839.723219105, 4525329.3834697595, 23246546.971131656, 553392.1190267598, 4726834.392684209, 223952.597645769, 1898858.498607165, 'std'),(1750.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 'min'),(1854.0, 137.85605, 58.138058, 12165.899, 519.6276, 2124.2761, 131.87717, 1207.5621, '25%'),(1914.0, 1403.7751, 731.89014, 93669.86, 3824.931, 14941.013, 954.0942, 8457.144, '50%'),(1970.0, 22905.088, 21654.107, 470762.56, 17826.033, 90858.164, 4994.4277, 39316.773, '75%'),(2022.0, 109243090.0, 134596620.0, 599913340.0, 13618318.0, 135481700.0, 6141969.0, 63947644.0, 'max')
+        , parameters: None
+[2024-06-19T21:28:31.865+0000] {sql.py:496} INFO - Rows affected: 8
+[2024-06-19T21:28:31.874+0000] {populate_db.py:56} INFO - successfully insert data into table
+[2024-06-19T21:28:31.877+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-19T21:28:31.878+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-19T21:28:31.929+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=Air_pollution_data_pipeline, task_id=insert_into_db_table__2, run_id=manual__2024-06-19T21:27:51+00:00, execution_date=20240619T212751, start_date=20240619T212830, end_date=20240619T212831
+[2024-06-19T21:28:32.023+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-19T21:28:32.067+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-19T21:28:32.071+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
