@@ -10185,3 +10185,10 @@ UnboundLocalError: local variable 'creat_tbl' referenced before assignment
 [2024-06-19T22:53:19.453+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:53:19.452+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2024-06-19T22:53:19.478+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:53:19.478+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
 [2024-06-19T22:53:19.502+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.003 seconds
+[2024-06-19T22:53:49.735+0000] {processor.py:161} INFO - Started process (PID=1546) to work on /opt/airflow/dags/main.py
+[2024-06-19T22:53:49.737+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-06-19T22:53:49.739+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:53:49.739+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-06-19T22:53:51.437+0000] {processor.py:840} INFO - DAG(s) 'Air_pollution_data_pipeline' retrieved from /opt/airflow/dags/main.py
+[2024-06-19T22:53:51.683+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:53:51.682+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-19T22:53:51.727+0000] {logging_mixin.py:188} INFO - [2024-06-19T22:53:51.727+0000] {dag.py:3954} INFO - Setting next_dagrun for Air_pollution_data_pipeline to 2024-06-20 00:00:00+00:00, run_after=2024-06-21 00:00:00+00:00
+[2024-06-19T22:53:51.766+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 2.037 seconds
