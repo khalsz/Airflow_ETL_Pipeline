@@ -33,7 +33,7 @@ def insert_into_db_table( input_data, table_name: str):
     
     column_names = ", ".join(data.columns)
     
-    # appending value as tuple 
+    # appending values as tuple 
     values = []
     for row in data_list: 
         values.append(tuple(row))

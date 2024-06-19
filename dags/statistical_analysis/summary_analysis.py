@@ -50,15 +50,31 @@ def generate_summary(val_data):
 
 @task()
 def avg_emission_by_year(val_data):
+    
+    """Calculates the average pollutants emission by year.
+
+    Args:
+        val_data (str): JSON string containing the data to be analyzed.
+
+    Returns:
+        str: JSON string of the DataFrame with average emissions by year.
+
+    Raises:
+        Exception: If an error occurs during the average emission calculation.
+    """
+    
     try:  
         logger.info("starting average pollutants emission calculation")
         
-        # convert json data to DataFrame 
+        # Convert JSON string to DataFrame
         datadf = pd.read_json(val_data)
         
+        # Select only numerical columns, including 'Year'
         num_data =  datadf.select_dtypes(include='number')
         
+        # Calculate average emissions by year
         avg_emision = num_data.groupby('Year').mean().reset_index()
+        
         logger.info("successfully calculated average pollutants emission")
         
         return avg_emision.to_json()

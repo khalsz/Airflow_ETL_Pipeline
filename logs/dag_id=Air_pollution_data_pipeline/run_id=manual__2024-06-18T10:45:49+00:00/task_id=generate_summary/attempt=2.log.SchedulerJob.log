@@ -1,0 +1,1 @@
+[2024-06-18T11:09:59.259+0000] {scheduler_job_runner.py:843} ERROR - Executor reports task instance <TaskInstance: Air_pollution_data_pipeline.generate_summary manual__2024-06-18T10:45:49+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?
