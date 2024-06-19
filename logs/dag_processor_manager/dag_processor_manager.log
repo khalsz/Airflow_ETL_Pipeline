@@ -49135,3 +49135,11 @@ File Path                  PID    Runtime      # DAGs    # Errors  Last Runtime 
 ================================================================================
 [2024-06-19T22:51:45.518+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
 [2024-06-19T22:51:45.527+0000] {manager.py:740} INFO - There are 1 files in /opt/airflow/dags
+[2024-06-19T22:51:54.600+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                  PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/main.py                           1           0  1.34s           2024-06-19T22:51:45
+================================================================================
