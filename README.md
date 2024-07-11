@@ -44,7 +44,3 @@ We welcome contributions to improve this project. Please consider creating a pul
 ## License
 
 This project's license depends on the specific libraries used.
-
-- The Airflow framework itself is likely Apache 2.0 licensed.
-- Other dependencies might have different licenses.
-- Review the licenses of each dependency used in the project.
